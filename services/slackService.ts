@@ -20,7 +20,8 @@ export class SlackService {
     };
 
     const targetUrl = `${SLACK_API_BASE}/${endpoint}`;
-    // Format for corsproxy.io is https://corsproxy.io/?{url}
+    
+    // corsproxy.io uses a simple append format: https://corsproxy.io/?{url}
     const finalUrl = this.proxyUrl ? `${this.proxyUrl}${targetUrl}` : targetUrl;
 
     try {
@@ -40,8 +41,8 @@ export class SlackService {
       }
       return data;
     } catch (error: any) {
-      // TypeError usually indicates a CORS block or no network
       if (error instanceof TypeError) {
+        // This usually indicates a CORS block or total lack of internet
         throw new Error('CORS_ERROR');
       }
       throw error;
