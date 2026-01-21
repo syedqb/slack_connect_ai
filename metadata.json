@@ -1,0 +1,7 @@
+{
+  "name": "SlackConnect AI",
+  "description": "A sophisticated Slack channel manager and message composer that leverages Gemini AI to refine and polish your communications before sending.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
